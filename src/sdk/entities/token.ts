@@ -1,0 +1,66 @@
+import { ChainId } from '../constants'
+import { validateAndParseAddress } from '../utils'
+import { Currency } from './currency'
+
+/**
+ * Represents an ERC20 token with a unique address and some metadata.
+ */
+export class Token extends Currency {
+  public readonly chainId: ChainId
+
+  public readonly address: string
+
+  public readonly projectLink?: string
+
+  public constructor(
+    chainId: ChainId,
+    address: string,
+    decimals: number,
+    symbol?: string,
+    name?: string,
+    projectLink?: string,
+  ) {
+    super(decimals, symbol, name)
+    this.chainId = chainId
+    this.address = validateAndParseAddress(address)
+    this.projectLink = projectLink
+  }
+
+  /**
+   * Returns true if the two tokens are equivalent, i.e. have the same chainId and address.
+   * @param other other token to compare
+   */
+  public equals(other: Token): boolean {
+    // short circuit on reference equality
+    if (this === other) {
+      return true
+    }
+    return this.chainId === other?.chainId && this.address === other?.address && this.symbol === other?.symbol
+  }
+
+  /**
+   * Returns true if the address of this token sorts before the address of the other token
+   * @param other other token to compare
+   * @throws if the tokens have the same address
+   * @throws if the tokens are on different chains
+   */
+  public sortsBefore(other: Token): boolean {
+    return this.address?.toLowerCase() < other?.address?.toLowerCase()
+  }
+}
+
+/**
+ * Compares two currencies for equality
+ */
+export function currencyEquals(currencyA: Currency, currencyB: Currency): boolean {
+  if (currencyA instanceof Token && currencyB instanceof Token) {
+    return currencyA.equals(currencyB)
+  }
+  if (currencyA instanceof Token) {
+    return false
+  }
+  if (currencyB instanceof Token) {
+    return false
+  }
+  return currencyA === currencyB
+}

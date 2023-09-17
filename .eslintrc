@@ -1,0 +1,76 @@
+{
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["./src"]
+      }
+    }
+  },
+  "ignorePatterns": ["node_modules", "cypress", "src/**/*.stories.tsx", 
+    "src/sdk/**",
+    "src/__tests__/**", "src/**/*.test.tsx", "src/**/*.d.ts", "src/**/*.test.ts", "src/uikit/setupTests.js"],
+  "env": {
+    "es6": true,
+    "browser": true,
+    "jest": true
+  },
+  "extends": ["@pancakeswap/eslint-config-pancake", "plugin:react/jsx-runtime", "plugin:@next/next/recommended"],
+  "rules": {
+    "no-console": ["warn", { "allow": ["info", "warn", "error", "debug"] }],
+    "no-plusplus": 0,
+    "prefer-destructuring": ["warn", { "object": true, "array": false }],
+    "no-underscore-dangle": 0,
+    "import/prefer-default-export": 0,
+    "react/destructuring-assignment": 0,
+    "react/jsx-no-bind": 0,
+    "react/no-unused-prop-types": 0,
+    "@next/next/no-img-element": 0,
+    "no-sparse-arrays": 0,
+    "react-hooks/exhaustive-deps": [
+      "warn",
+      {
+        "additionalHooks": "(useFastRefreshEffect|useSlowRefreshEffect)"
+      }
+    ],
+    // Start temporary rules
+    // These rules are here just to keep the lint error to 0 during the migration to the new rule set
+    // They need to be removed and fixed as soon as possible
+    "@typescript-eslint/ban-ts-comment": [1, { "ts-ignore": false, "ts-nocheck": false }],
+    "@typescript-eslint/no-use-before-define": 0,
+    "@typescript-eslint/explicit-module-boundary-types": 0,
+    "@typescript-eslint/no-explicit-any": 0,
+    "react/no-array-index-key":0,
+    "radix": 0,
+    "import/no-extraneous-dependencies": 0,
+    "jsx-a11y/media-has-caption": 0,
+    // Exchange
+    "no-param-reassign": 0,
+    "react/require-default-props": 0,
+    "no-nested-ternary": 0,
+    "max-classes-per-file": 0,
+    "react/jsx-curly-brace-presence":["warn"],
+    "react/no-unescaped-entities":["warn"],
+    "react/jsx-boolean-value":["warn"],
+    "consistent-return":["warn"],
+    "camelcase":["warn"],
+    "no-lonely-if":["warn"],
+    "no-return-assign":["warn"],
+    "react/self-closing-comp":["warn"],
+    "one-var":["warn"],
+    "no-bitwise":["warn"],
+    "no-else-return":["warn"],
+    "spaced-comment":["warn"],
+    "lines-between-class-members":["warn"],
+    "no-continue":["warn"],
+    "@typescript-eslint/no-extra-semi":["warn"],
+    "@typescript-eslint/no-empty-function":["warn"],
+    "default-case":["warn"],
+    "import/newline-after-import":["warn"],
+    "import/no-cycle":["warn"],
+    "import/order": 0,
+    "no-useless-constructor":["warn"],
+    "react/default-props-match-prop-types":["warn"]
+
+    // End temporary rules
+  }
+}

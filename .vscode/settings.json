@@ -1,0 +1,21 @@
+{
+    "favorites.resources": [
+        {
+            "filePath": "src\\views\\Ramp\\ramp.tsx",
+            "group": "Default"
+        },
+        {
+            "filePath": "src\\utils\\limitlessUtils.ts",
+            "group": "Default"
+        },
+        {
+            "filePath": "src\\components\\Menu\\config\\footerConfig.ts",
+            "group": "Default"
+        },
+        {
+            "filePath": "src\\components\\Menu\\config\\config.ts",
+            "group": "Default"
+        }
+    ],
+    "search.useIgnoreFiles": false
+}

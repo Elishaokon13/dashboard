@@ -7,23 +7,21 @@
 
 # testing
 /coverage
+cypress/videos
+cypress/screenshots
+cypress/fixtures/example.json
 
 # next.js
 /.next/
 /out/
+.idea/
 
 # production
 /build
 
 # misc
 .DS_Store
-*.pem
-
-# debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.pnpm-debug.log*
+.eslintcache
 
 # local env files
 .env.local
@@ -31,5 +29,30 @@ yarn-error.log*
 .env.test.local
 .env.production.local
 
-# vercel
-.vercel
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+debug.log*
+
+src/config/abi/types
+
+
+# Sentry
+.sentryclirc
+
+# next-pwa
+**/public/workbox-*.js
+**/public/sw.js
+**/public/worker-*.js
+
+**/public/precache.*.*.js
+**/public/sw.js
+**/public/workbox-*.js
+**/public/worker-*.js
+**/public/fallback-*.js
+**/public/precache.*.*.js.map
+**/public/sw.js.map
+**/public/workbox-*.js.map
+**/public/worker-*.js.map
+**/public/fallback-*.js
